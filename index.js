@@ -129,3 +129,17 @@ totalMovement.forEach(function(value, index){
 
 //````````````````````````````````````````````````````````````````````
 
+let input = 'noggin oreo the moon time tele steed his tent apollo her lives though shoo tofu budapest';
+function decodedSentence(words){
+  let wordsArray = words.split(' ');
+  return wordsArray.reduce(function(accumulator, currentVal){
+    //console.log(accumulator, currentVal);
+    if(currentVal.length === 3){
+      return accumulator + ' ';
+    }
+    else{
+      return accumulator + currentVal[currentVal.length -1].toUpperCase();
+    }
+  }, '');
+}
+console.log(decodedSentence(input));
