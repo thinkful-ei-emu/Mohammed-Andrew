@@ -24,5 +24,13 @@ function min (numbers){
   return currentVal;  
 }
 
+function average (numbers){
+  let total = 0;
+  numbers.forEach(function(element){
+    total += element;
+  });
+  return total;
+}
+
 
 
