@@ -1,3 +1,4 @@
+/* eslint-disable no-console */
 'use strict';
 
 function max (numbers){
@@ -75,5 +76,56 @@ const filteredNames = filter(myNames, function(name) {
 
 console.log(filteredNames); // => ['Rich', 'Ray']
 // <---- DO NOT EDIT BETWEEN THESE LINES
+console.log(filter(myNames, (name) => { return name[0] === 'R'; }));
+//```````````````````````````````````````````````````````````````````````````````````
 
+function hazardWarningCreator(typeOfWarning){
+  let warningCounter = 0;
+  return function(location){
+    warningCounter ++;
+    let time = 'time';    
+    if(warningCounter ===  0 || warningCounter >= 2){
+      time = 'times';      
+    }
+    console.log (`DANGER! There is a ${typeOfWarning} hazard at ${location}!`);
+    console.log (`The ${typeOfWarning} hazard alert has triggered ${warningCounter} ${time} today!`);    
+  };
+}
+const rocksWarning = hazardWarningCreator('Rocks on the Road');
+const potholeWarning = hazardWarningCreator('Potholes on the Road');
+const deadAnimal = hazardWarningCreator('Dead Animals on the Road');
+
+rocksWarning('Main st and Pacific Ave');
+rocksWarning('Centinela Ave and Olympic Blvd');
+potholeWarning('Main st and Pacific Ave');
+potholeWarning('Centinela Ave and Olympic Blvd');
+deadAnimal('Main st and Pacific Ave');
+deadAnimal('Centinela Ave and Olympic Blvd');
+
+//````````````````````````````````````````````````````````````````````````````````````````````````
+
+let turtleSteps = [[0, 0], [0, 5], [-1, -3], [-3, 1], [2, -4], [3, 2]];
+function isForwardLeft(turtlestep){
+  if(turtlestep[0] < 0 || turtlestep[1] < 0){
+    return false;
+  }
+  else{
+    return true;
+  }
+}
+const newTurtleStepsArray = turtleSteps.filter(isForwardLeft);
+console.log(newTurtleStepsArray);
+
+function totalSteps(step){
+  return  step[0] + step[1];
+}
+const totalMovement = newTurtleStepsArray.map(totalSteps);
+console.log(totalMovement);
+
+
+totalMovement.forEach(function(value, index){
+  console.log(`Movement #${index + 1}: ${value} steps`);
+});
+
+//````````````````````````````````````````````````````````````````````
 
